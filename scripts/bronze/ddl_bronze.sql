@@ -1,4 +1,5 @@
 -- create table
+
 if object_id ('bronze.crm_cust_info' , 'U') in not null
    drop table bronze.crm_cust_info;
 
