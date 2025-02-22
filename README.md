@@ -6,7 +6,7 @@ Building a modern data warehouse using Microsoft SQL Serve I complete this proje
 ![ETL -Data Architecher drawio](https://github.com/user-attachments/assets/96c13707-ed0e-4752-b738-15347e00c0f9)
 
 
-- **These Four Aprouches we follow Medallion Architecture because this is very is eassy to understand and to build**<br>
+- **These Four Aprouches we follow Medallion Architecture because this is very is easy to understand and to build**<br>
   <br>
   This Include Three Layer
   - Bronze
