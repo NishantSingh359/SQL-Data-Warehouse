@@ -16,11 +16,12 @@ create table bronze.crm_cust_info (
   cst_key nvarchar(50),
   cst_firstname nvarchar(50),
   cst_lastname nvarchar(50),
-  cst_material_status nvarchar(50),
+  cst_marital_status nvarchar(50),
   cst_gndr nvarchar(50),
   cst_create_date date
 );
 go
+
 -- CREATE bronze.crm_prd_info 
 
 if object_id ('bronze.crm_prd_info' , 'U') is not null
@@ -36,6 +37,7 @@ create table bronze.crm_prd_info (
   prd_end_dt datetime
  );
 go
+
 -- CREATE bronze.crm_sales_details 
 
 if object_id ('bronze.crm_sales_details' , 'U') is not null
@@ -43,7 +45,7 @@ if object_id ('bronze.crm_sales_details' , 'U') is not null
 go
 create table bronze.crm_sales_details (
   sls_ord_num nvarchar(50),
-  sls_ord_key nvarchar(50),
+  sls_prd_key nvarchar(50),
   sls_cust_id int,
   sls_order_dt int,
   sls_ship_dt int,
