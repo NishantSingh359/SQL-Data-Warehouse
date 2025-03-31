@@ -1,4 +1,10 @@
+
+-- ==================== LOAD DATA BRONZE TO SILVER ====================
+
+-- EXECUTE PROCEDURE ======
 EXEC silver.load_silver
+
+-- ============== CREATE PROCEDURE ==============
 
 create or alter procedure  silver.load_silver AS
 begin
@@ -12,6 +18,9 @@ begin
 		print '---------------------------------------------';
 		print 'Loading CRM Tables';
 		print '---------------------------------------------';
+
+		-- ====================== LOAD CRM TABLES ======================
+
 		-- crm_cust_info ===================================
 		set @start_time = getdate();
 
@@ -24,7 +33,7 @@ begin
 		cst_key,
 		cst_firstname,
 		cst_lastname,
-		cst_material_status,
+		cst_marital_status,
 		cst_gndr,
 		cst_create_date)
 
@@ -34,8 +43,8 @@ begin
 		trim(cst_firstname) as cst_firstname ,
 		trim(cst_lastname) as cst_lastname,
 
-		case when upper(trim(cst_material_status)) = 'S' then 'Single'
-			 when upper(trim(cst_material_status)) = 'M' then 'Married'
+		case when upper(trim(cst_marital_status)) = 'S' then 'Single'
+			 when upper(trim(cst_marital_status)) = 'M' then 'Married'
 			 else 'n/a'
 		end cst_material_status,
 
@@ -106,7 +115,7 @@ begin
 
 		insert into silver.crm_sales_details (
 		sls_ord_num,
-		sls_ord_key,
+		sls_prd_key,
 		sls_cust_id,
 		sls_order_dt,
 		sls_ship_dt,
@@ -117,7 +126,7 @@ begin
 		)
 		select 
 		sls_ord_num,
-		sls_ord_key,
+		sls_prd_key,
 		sls_cust_id,
 
 		case when sls_order_dt = 0 or len(sls_order_dt) != 8 then null  -- invalid data
@@ -152,6 +161,8 @@ begin
 		print '---------------------------------------------';
 		print 'Loading CRM Tables';
 		print '---------------------------------------------';
+
+		-- ====================== LOAD ERP TABLES ======================
 
 		-- erp_cust_az12 ==========================================
 
