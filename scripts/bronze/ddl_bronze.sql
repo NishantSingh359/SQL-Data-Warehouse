@@ -8,7 +8,7 @@
 
 -- CREATE bronze.crm_cust_info
 
-if object_id ('bronze.crm_cust_info' , 'U') in not null
+if object_id ('bronze.crm_cust_info' , 'U') is not null
    drop table bronze.crm_cust_info;
 
 create table bronze.crm_cust_info (
@@ -23,7 +23,7 @@ create table bronze.crm_cust_info (
 
 -- CREATE bronze.crm_prd_info 
 
-if object_id ('bronze.crm_prd_info' , 'U') in not null
+if object_id ('bronze.crm_prd_info' , 'U') is not null
    drop table bronze.crm_prd_info;
 
 create table bronze.crm_prd_info (
@@ -38,7 +38,7 @@ create table bronze.crm_prd_info (
 
 -- CREATE bronze.crm_sales_details 
 
-if object_id ('bronze.crm_sales_details' , 'U') in not null
+if object_id ('bronze.crm_sales_details' , 'U') is not null
    drop table bronze.crm_sales_details;
 
 create table bronze.crm_sales_details (
@@ -60,7 +60,7 @@ create table bronze.crm_sales_details (
 
 -- CREATE bronze.erp_loc_a101 
 
-if object_id ('bronze.erp_loc_a101' , 'U') in not null
+if object_id ('bronze.erp_loc_a101' , 'U') is not null
    drop table bronze.erp_loc_a101;
 
 create table bronze.erp_loc_a101 (
@@ -71,7 +71,7 @@ create table bronze.erp_loc_a101 (
 
 -- CREATE bronze.erp_cust_az12 
 
-if object_id ('bronze.erp_cust_az12' , 'U') in not null
+if object_id ('bronze.erp_cust_az12' , 'U') is not null
    drop table bronze.erp_cust_az12;
 create table bronze.erp_cust_az12 (
   cid nvarchar(50),
@@ -82,7 +82,7 @@ create table bronze.erp_cust_az12 (
 
 -- CREATE bronze.erp_px_cat_g1v2
 
-if object_id ('bronze.erp_px_cat_g1v2' , 'U') in not null
+if object_id ('bronze.erp_px_cat_g1v2' , 'U') is not null
    drop table bronze.erp_px_cat_g1v2;
 
 create table bronze.erp_px_cat_g1v2 (
