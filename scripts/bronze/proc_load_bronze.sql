@@ -19,7 +19,9 @@ begin
 		print 'Loading CRM Tables'
 		print '------------------------------------------'
 
-		-- FIRST 
+
+		-- Load Data in bronze.crm_cust_info 
+
 		set @start_time = getdate();
 		truncate table bronze.crm_cust_info;
 		bulk insert bronze.crm_cust_info
@@ -34,7 +36,8 @@ begin
 		print '>> Load Duration: ' + cast(datediff(second, @start_time, @end_time) as nvarchar(50)) + 'seconds';
 
 
-		-- SECOND
+		-- Load Data in bronze.crm_prd_info
+
 		set @start_time = getdate();
 		truncate table bronze.crm_prd_info;
 		bulk insert bronze.crm_prd_info
@@ -48,7 +51,8 @@ begin
 		print '>> Load Duration: ' + cast(datediff(second, @start_time, @end_time) as nvarchar(50)) + 'seconds';
 
 
-		-- THIRD
+		-- Load Data in bronze.crm_sales_details 
+
 		set @start_time = getdate();
 		truncate table bronze.crm_sales_details;
 
@@ -72,7 +76,8 @@ begin
 		print '------------------------------------------'
 
 
-		-- FIRST
+		-- Load Data in bronze.erp_cust_az12
+
 		set @start_time = getdate();
 		truncate table bronze.erp_cust_az12;
 		bulk insert bronze.erp_cust_az12
@@ -86,7 +91,8 @@ begin
 		print '>> Load Duration: ' + cast(datediff(second, @start_time, @end_time) as nvarchar(50)) + 'seconds';
 
 
-		-- SECOND
+		-- Load Data in bronze.erp_loc_a101
+
 		set @start_time = getdate();
 		truncate table bronze.erp_loc_a101;
 		bulk insert bronze.erp_loc_a101
@@ -101,7 +107,8 @@ begin
 		print '>> Load Duration: ' + cast(datediff(second, @start_time, @end_time) as nvarchar(50)) + 'seconds';
 
 
-		-- THIRD
+		-- Load Data in bronze.erp_cust_g1v2
+
 		set @start_time = getdate();
 		truncate table bronze.erp_px_cat_g1v2;
 		bulk insert bronze.erp_px_cat_g1v2
