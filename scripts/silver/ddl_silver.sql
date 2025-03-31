@@ -1,4 +1,9 @@
--- CREATE SILVER LAYER TABLES ====================
+
+-- ==================================
+-- CREATE SILVER LAYER TABLES 
+-- ==================================
+
+-- CREATE silver.crm_cust_info 
 
 if object_id('silver.crm_cust_info', 'U') is not null
     drop table silver.crm_cust_info;
@@ -16,6 +21,8 @@ create table silver.crm_cust_info (
 );
 go
 
+-- CREATE silver.crm_prd_info 
+
 if object_id('silver.crm_prd_info', 'U') is not null
     drop table silver.crm_prd_info;
 go
@@ -32,6 +39,8 @@ create table silver.crm_prd_info (
     dwh_create_date datetime2 default getdate()
 );
 go
+
+-- CREATE silver.crm_sales_details 
 
 if object_id('silver.crm_sales_details', 'U') is not null
     drop table silver.crm_sales_details;
@@ -51,6 +60,8 @@ create table silver.crm_sales_details (
 );
 go
 
+-- CREATE silver.erp_loc_a101
+
 if object_id('silver.erp_loc_a101', 'U') is not null
     drop table silver.erp_loc_a101;
 go
@@ -61,6 +72,8 @@ create table silver.erp_loc_a101 (
     dwh_create_date datetime2 default getdate()
 );
 go
+
+-- CREATE silver.erp_cust_az12
 
 if object_id('silver.erp_cust_az12', 'U') is not null
     drop table silver.erp_cust_az12;
@@ -73,6 +86,8 @@ create table silver.erp_cust_az12 (
     dwh_create_date datetime2 default getdate()
 );
 go
+
+-- CREATE silver.erp_px_cat_g1v2
 
 if object_id('silver.erp_px_cat_g1v2', 'U') is not null
     drop table silver.erp_px_cat_g1v2;
