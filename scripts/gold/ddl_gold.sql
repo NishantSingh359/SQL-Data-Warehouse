@@ -1,9 +1,8 @@
--- This is the Golden Layer of my Data Warehouse Project 
-
 
 -- ===================================
 -- gold.dim_customer view created
 -- ===================================
+
 
 if object_id('gold.dim_customer', 'V') is not null
 drop view gold.dim_customer;
@@ -16,7 +15,7 @@ select
 	ci.cst_firstname as first_name,
 	ci.cst_lastname as last_name,
 	la.cntry as country,
-	ci.cst_material_status as marital_status,
+	ci.cst_marital_status as marital_status,
 	case when ci.cst_gndr != 'n/a' then ci.cst_gndr --CRM is the Master for gender Info
 	     else coalesce(ca.gen, 'n/a')
 	end as gender,
@@ -27,7 +26,7 @@ left join silver.erp_cust_az12 ca
 on ci.cst_key = ca.cid
 left join silver.erp_loc_a101 la
 on ci.cst_key = la.cid;
-
+go
 -- ===================================
 -- gold.dim_products view created
 -- ===================================
@@ -52,7 +51,7 @@ from silver.crm_prd_info pn
 left join silver.erp_px_cat_g1v2 pc
 on pn.cat_id = pc.id
 where prd_end_dt is null; -- Filter out all historical data
-
+go
 -- ===================================
 -- gold.fact_sales view created
 -- ===================================
@@ -73,6 +72,6 @@ sd.sls_quantity as quantity,
 sd.sls_price as price
 from silver.crm_sales_details sd
 left join gold.dim_products pr
-on  sd.sls_ord_key = pr.product_number
+on  sd.sls_prd_key = pr.product_number
 left join gold.dim_customer cu
 on sd.sls_cust_id = cu.customer_id
